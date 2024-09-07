@@ -23,6 +23,13 @@ sys.stdout.reconfigure(encoding='utf-8')
 yuan_brl_rate = cny_brl_rate()
 print("* CNY/BRL rate successfully updated!")
 
+options = webdriver.ChromeOptions()
+options.add_argument("--blink-settings=imagesEnabled=false") # Disable images
+options.add_argument("--disable-features=CSSStyleSheet") # Disable CSS styles
+options.add_argument('--headless') # Run in headless mode (without a graphical user interface)
+options.add_argument("--disable-logging")  # Disable logging for DevTools
+driver = webdriver.Chrome(options=options)
+
 # Define panda's display options 
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
